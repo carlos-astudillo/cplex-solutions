@@ -1,4 +1,4 @@
-vnf-placement-cplex
+cplex-solutions
 ===================
 
-CPLEX based solution for the VNF Placement Problem
+CPLEX programs for different Problems
