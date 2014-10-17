@@ -6,9 +6,13 @@ typedef IloArray<IloIntVarArray> IloIntVarArray2;
 
 int main(int argc, char **argv){
     
+    if (argc < 2){
+        cout << "usage: ./mmkp <input-filename>" << endl;
+    }
+    
     IloEnv env;
-    std::string filename = "mmkp_I02.dat";
     try{
+        std::string filename(argv[1]);
         // Read input file
         FILE *file_ptr = fopen(filename.c_str(), "r");
         
