@@ -12,6 +12,9 @@ int main(int argc, char **argv){
     
     IloEnv env;
     try{
+        // time limit in sec
+        const IloInt timeLimit = 60*60; // one hour
+
         std::string filename(argv[1]);
         // Read input file
         FILE *file_ptr = fopen(filename.c_str(), "r");
@@ -101,6 +104,7 @@ int main(int argc, char **argv){
 
         // solve the problem
         IloCplex cplex(model);
+        cplex.setParam(IloCplex::TiLim, timeLimit);
         if (!cplex.solve()){
             cout << "Failed to solve LP!" << endl;
             throw(-1);
